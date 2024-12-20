@@ -1,7 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import hero_image from '../../public/hero_image.png';
 
 const HeroSection: React.FC = () => {
   return (
@@ -20,7 +18,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         <div className="md:w-1/2">
-          <Image src="/hero_image.png" alt="Technology illustration" width={600} height={400} className="rounded-lg shadow-lg" />
+          <img src="/hero_image.png" alt="Technology illustration" width={600} height={400} className="rounded-lg shadow-lg" />
         </div>
       </div>
     </section>
