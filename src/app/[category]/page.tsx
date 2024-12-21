@@ -16,16 +16,25 @@ export async function generateStaticParams() {
   }`;
   const categories = await client.fetch(query);
   
+  if (!categories || categories.length === 0) {
+    console.warn("No categories found in Sanity dataset.");
+    return [];
+  }
+  
+  // Normalize category slugs to ensure consistency
   return categories.map((category: { slug: string }) => ({
-    category: category.slug,
+    category: category.slug.toLowerCase().replace(/\s+/g, '-'),
   }));
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
+const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
+  // Normalize the category parameter
+  const normalizedCategory = params.category.toLowerCase().replace(/\s+/g, '-');
+  
   return (
     <div className="min-h-screen">
-      <CategoryHeader category={params.category} />
-      <BlogListSection category={params.category} />
+      <CategoryHeader category={normalizedCategory} />
+      <BlogListSection category={normalizedCategory} />
     </div>
   );
 };
