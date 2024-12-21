@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from '@/components/ui/button';
+import { LoadingButton } from '@/components/ui/loading-button';
 import { cn } from '@/lib/utils';
 import { getCategories } from '@/lib/sanity/queries';
 
@@ -62,9 +63,7 @@ const Navbar = async () => {
           <Button asChild variant="ghost">
             <Link href="/blog">Blog</Link>
           </Button>
-          <Button asChild>
-            <Link href="/studio">Studio</Link>
-          </Button>
+          <LoadingButton href="/studio">Studio</LoadingButton>
         </div>
       </div>
     </nav>

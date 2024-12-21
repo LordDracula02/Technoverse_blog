@@ -5,7 +5,8 @@ import type { NextRequest } from 'next/server'
 const redirects = {
   '/fintech': '/fin-tech',
   '/consumertech': '/consumer-tech',
-  '/opensource': '/open-source'
+  '/opensource': '/open-source',
+  '/autofocus': '/auto-focus'
 }
 
 export function middleware(request: NextRequest) {

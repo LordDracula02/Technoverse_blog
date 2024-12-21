@@ -20,7 +20,7 @@ const FeaturesSection: React.FC = () => {
     {
       title: 'AutoFocus: Innovations in Automotive Technology and Trends',
       description: 'Explore the future of driving with our insights into automotive advancements.',
-      link: '/autofocus',
+      link: '/auto-focus',
       linkText: 'Discover',
       icon: '🚗',
     },
