@@ -3,6 +3,7 @@ import React from 'react';
 import CategoryHeader from '@/components/blog/CategoryHeader';
 import BlogListSection from '@/components/home/BlogListSection';
 import { client } from '@/sanity/lib/client';
+import { notFound } from 'next/navigation';
 
 interface CategoryPageProps {
   params: {
@@ -21,22 +22,27 @@ export async function generateStaticParams() {
     return [];
   }
   
-  // Normalize category slugs to ensure consistency
   return categories.map((category: { slug: string }) => ({
-    category: category.slug.toLowerCase().replace(/\s+/g, '-'),
+    category: category.slug,
   }));
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
-  // Normalize the category parameter
-  const normalizedCategory = params.category.toLowerCase().replace(/\s+/g, '-');
+async function getCategory(slug: string) {
+  const query = `*[_type == "category" && slug.current == $slug][0]`;
+  return client.fetch(query, { slug });
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const category = await getCategory(params.category);
   
+  if (!category) {
+    notFound();
+  }
+
   return (
     <div className="min-h-screen">
-      <CategoryHeader category={normalizedCategory} />
-      <BlogListSection category={normalizedCategory} />
+      <CategoryHeader category={params.category} />
+      <BlogListSection category={params.category} />
     </div>
   );
-};
-
-export default CategoryPage;
+}

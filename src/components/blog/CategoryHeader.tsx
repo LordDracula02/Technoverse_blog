@@ -1,7 +1,7 @@
 import React from 'react';
 import { client } from '@/sanity/lib/client';
 
-export type Category = 'consumertech' | 'autofocus' | 'opensource' | 'ai-ml' | 'fintech';
+export type Category = 'consumer-tech' | 'autofocus' | 'open-source' | 'ai-ml' | 'fin-tech';
 
 interface CategoryHeaderProps {
   category: string;

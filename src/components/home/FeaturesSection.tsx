@@ -13,7 +13,7 @@ const FeaturesSection: React.FC = () => {
     {
       title: 'ConsumerTech: Your Guide to the Latest Gadgets and Devices',
       description: 'Uncover reviews and insights on the gadgets that enhance your life.',
-      link: '/consumertech',
+      link: '/consumer-tech',
       linkText: 'Learn',
       icon: '📱',
     },
@@ -27,7 +27,7 @@ const FeaturesSection: React.FC = () => {
     {
       title: 'OpenSource: Exploring the World of Open-Source Software',
       description: 'Delve into the collaborative world of open-source projects and technologies.',
-      link: '/opensource',
+      link: '/open-source',
       linkText: 'Contribute',
       icon: '🌐',
     },
@@ -41,7 +41,7 @@ const FeaturesSection: React.FC = () => {
     {
       title: 'FinTech: Revolutionizing Finance Through Technology',
       description: 'Discover how technology is reshaping the financial landscape.',
-      link: '/fintech',
+      link: '/fin-tech',
       linkText: 'Invest',
       icon: '💰',
     },
